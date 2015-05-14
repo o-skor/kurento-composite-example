@@ -8,7 +8,7 @@ function getopts(args, opts) {
 
 var args = getopts(location.search, {
   default: {
-    ws_uri: 'ws://' + location.hostname + ':8888/kurento',
+    ws_uri: "ws://" + location.hostname + ":8888/kurento",
     ice_servers: undefined
   }
 });
@@ -30,8 +30,8 @@ var webRtcEndpoint;
 var hubPort;
 
 window.addEventListener("load", function(event) {
-  var videoInput = document.getElementById('videoInput');
-  var videoOutput = document.getElementById('videoOutput');
+  var videoInput = document.getElementById("videoInput");
+  var videoOutput = document.getElementById("videoOutput");
   var startButton = document.getElementById("start");
   var stopButton = document.getElementById("stop");
   stopButton.addEventListener("click", stop);
@@ -66,7 +66,7 @@ window.addEventListener("load", function(event) {
       if (error) return onerror(error);
       mediaPipeline = _mediaPipeline;
 
-      mediaPipeline.create('Composite', function(error, _composite) {
+      mediaPipeline.create("Composite", function(error, _composite) {
         if (error) return onerror(error);
         composite = _composite;
       });
@@ -86,7 +86,7 @@ window.addEventListener("load", function(event) {
       })
 
       // HACK: wait until SDP offer contains ICE candidates.
-      // kurento-client.js doesn't fully support this part of ICE trickle yet (?)
+      // kurento-client.js doesn"t fully support this part of ICE trickle yet (?)
       setTimeout(function() {
         sdpOffer = webRtcPeer.peerConnection.localDescription.sdp;
 
@@ -96,17 +96,17 @@ window.addEventListener("load", function(event) {
 
           webRtcEndpoint.setMinVideoSendBandwidth(0, function(error, result) {
             if (error) return onerror(error);
-            console.log('setMinVideoSendBandwidth');
+            console.log("setMinVideoSendBandwidth called");
 
             webRtcEndpoint.setMaxVideoSendBandwidth(0, function(error, result) {
               if (error) return onerror(error);
-              console.log('setMaxVideoSendBandwidth');
+              console.log("setMaxVideoSendBandwidth called");
 
               webRtcEndpoint.setMaxVideoRecvBandwidth(0, function(error, result) {
                 if (error) return onerror(error);
-                console.log('setMaxVideoRecvBandwidth');
+                console.log("setMaxVideoRecvBandwidth called");
 
-                webRtcEndpoint.on('OnIceCandidate', function(event) {
+                webRtcEndpoint.on("OnIceCandidate", function(event) {
                   webRtcPeer.addIceCandidate(event.candidate, function(error) {
                     if (error) return onerror(error);
                     console.log(event.candidate);
@@ -128,12 +128,12 @@ window.addEventListener("load", function(event) {
 
                         webRtcEndpoint.gatherCandidates(function(error, result) {
                           if (result) console.log(result);
-                          console.log('Gathering candidates...');
+                          console.log("Gathering candidates...");
                         });
 
                         processAnswerCallback(sdpAnswer, function(error) {
                           if (error) return onerror(error);
-                          console.log('Answer processed');
+                          console.log("Answer processed");
                         });
                       });
                     });
@@ -166,16 +166,16 @@ function onerror(error) {
 
 function showSpinner() {
   for (var i = 0; i < arguments.length; i++) {
-    arguments[i].poster = 'img/transparent-1px.png';
+    arguments[i].poster = "img/transparent-1px.png";
     arguments[i].style.background = "center transparent url('img/spinner.gif') no-repeat";
   }
 }
 
 function hideSpinner() {
   for (var i = 0; i < arguments.length; i++) {
-    arguments[i].src = '';
-    arguments[i].poster = 'img/webrtc.png';
-    arguments[i].style.background = '';
+    arguments[i].src = "";
+    arguments[i].poster = "img/webrtc.png";
+    arguments[i].style.background = "";
   }
 }
 
