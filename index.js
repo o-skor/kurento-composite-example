@@ -96,15 +96,15 @@ window.addEventListener("load", function(event) {
 
           webRtcEndpoint.setMinVideoSendBandwidth(0, function(error, result) {
             if (error) return onerror(error);
-            console.log('set');
+            console.log('setMinVideoSendBandwidth');
 
             webRtcEndpoint.setMaxVideoSendBandwidth(0, function(error, result) {
               if (error) return onerror(error);
-              console.log('set');
+              console.log('setMaxVideoSendBandwidth');
 
               webRtcEndpoint.setMaxVideoRecvBandwidth(0, function(error, result) {
                 if (error) return onerror(error);
-                console.log('set');
+                console.log('setMaxVideoRecvBandwidth');
 
                 webRtcEndpoint.on('OnIceCandidate', function(event) {
                   webRtcPeer.addIceCandidate(event.candidate, function(error) {
