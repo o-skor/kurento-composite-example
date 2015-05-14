@@ -166,15 +166,15 @@ function onerror(error) {
 
 function showSpinner() {
   for (var i = 0; i < arguments.length; i++) {
-    arguments[i].poster = 'transparent-1px.png';
-    arguments[i].style.background = "center transparent url('spinner.gif') no-repeat";
+    arguments[i].poster = 'img/transparent-1px.png';
+    arguments[i].style.background = "center transparent url('img/spinner.gif') no-repeat";
   }
 }
 
 function hideSpinner() {
   for (var i = 0; i < arguments.length; i++) {
     arguments[i].src = '';
-    arguments[i].poster = 'webrtc.png';
+    arguments[i].poster = 'img/webrtc.png';
     arguments[i].style.background = '';
   }
 }
