@@ -1,2 +1,1 @@
-# kurento-composite-example
-Tiny example of using Kurento media elements: Composite + WebRtcEndpoint
+Minimalistic example of usage Kurento media objects: WebRtcEndpoint, Composite, HubPort with JavaScript API.
