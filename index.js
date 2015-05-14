@@ -74,7 +74,7 @@ window.addEventListener("load", function(event) {
   });
 
   startButton.addEventListener("click", function start() {
-    console.log("WebRTC loopback starting");
+    console.log("Starting...");
     showSpinner(videoInput, videoOutput);
 
     webRtcPeer = kurentoUtils.WebRtcPeer.WebRtcPeerSendrecv(options, function (error) {
