@@ -98,11 +98,11 @@ window.addEventListener("load", function(event) {
             if (error) return onerror(error);
             console.log("setMinVideoSendBandwidth called");
 
-            webRtcEndpoint.setMaxVideoSendBandwidth(0, function(error, result) {
+            webRtcEndpoint.setMaxVideoSendBandwidth(2048, function(error, result) {
               if (error) return onerror(error);
               console.log("setMaxVideoSendBandwidth called");
 
-              webRtcEndpoint.setMaxVideoRecvBandwidth(0, function(error, result) {
+              webRtcEndpoint.setMaxVideoRecvBandwidth(2048, function(error, result) {
                 if (error) return onerror(error);
                 console.log("setMaxVideoRecvBandwidth called");
 
